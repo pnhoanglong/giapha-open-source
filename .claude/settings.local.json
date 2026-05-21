@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat /Users/leombp/Projects/pnhoanglong/giapha-open-source/package.json)"
+      "Bash(cat /Users/leombp/Projects/pnhoanglong/giapha-open-source/package.json)",
+      "Bash(cat /Users/leombp/Projects/pnhoanglong/giapha-open-source/.env.local)"
     ],
     "deny": [],
     "ask": []
