@@ -24,6 +24,19 @@ export default function HeaderMenu() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // If not logged in, show login button
+  if (!user) {
+    return (
+      <Link
+        href="/login"
+        className="flex items-center gap-2 px-4 py-2 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-sm font-semibold transition-all duration-200 shadow-sm"
+      >
+        <UserCircle className="size-4" />
+        Đăng nhập
+      </Link>
+    );
+  }
+
   return (
     <div className="relative" ref={menuRef}>
       <button

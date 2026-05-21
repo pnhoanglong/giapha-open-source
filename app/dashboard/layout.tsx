@@ -14,14 +14,10 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const user = await getUser();
+  const profile = user ? await getProfile(user.id) : null;
 
-  if (!user) {
-    redirect("/login");
-  }
-
-  const profile = await getProfile(user.id);
-
-  if (!profile?.is_active) {
+  // If user is authenticated but not active, show waiting screen
+  if (user && profile && !profile.is_active) {
     return (
       <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans">
         <header className="sticky top-0 z-30 bg-white/80 border-b border-stone-200 shadow-sm transition-all duration-200">
@@ -74,6 +70,8 @@ export default async function DashboardLayout({
     );
   }
 
+  // Allow unauthenticated access to dashboard (member-level pages)
+  // UserProvider will handle null user/profile gracefully
   return (
     <UserProvider user={user} profile={profile}>
       <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans">

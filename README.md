@@ -27,13 +27,14 @@ Phù hợp với người Việt Nam.
 
 ## Các tính năng chính
 
+- **Truy cập công khai**: Xem gia phả mà không cần đăng nhập - chia sẻ dễ dàng với mọi người trong gia đình.
 - **Sơ đồ trực quan**: Xem gia phả dạng Cây (Tree) và Sơ đồ tư duy (Mindmap).
 - **Tìm danh xưng**: Tự động xác định cách gọi tên (Bác, Chú, Cô, Dì...) chính xác.
 - **Quản lý thành viên**: Lưu trữ thông tin, avatar và sắp xếp thứ tự nhánh dòng họ.
 - **Quản lý quan hệ**: Quản lý các mối quan hệ trong gia phả (hỗ trợ các trường hợp đặc biệt như đa thê, đa phu,...).
 - **Thống kê & Sự kiện**: Theo dõi ngày giỗ và các chỉ số nhân khẩu học của dòng họ.
 - **Sao lưu dữ liệu**: Xuất/nhập file JSON, CSV, GEDCOM để lưu trữ hoặc di chuyển dễ dàng.
-- **Bảo mật**: Phân quyền (Admin, Editor, Member) và bảo vệ dữ liệu bằng Supabase.
+- **Bảo mật**: Phân quyền (Admin, Editor, Member) cho chỉnh sửa, công khai cho xem.
 - **Đa thiết bị**: Giao diện hiện đại, tối ưu cho cả máy tính và điện thoại.
 
 ## Demo
@@ -121,11 +122,12 @@ Mở trình duyệt và truy cập: `http://localhost:3000`
 
 ---
 
-## Tài khoản đầu tiên
+## Truy cập và Tài khoản
 
-- Đăng ký tài khoản mới khi vào web lần đầu.
-- Người đăng ký đầu tiên sẽ tự động có quyền **admin**.
-- Các tài khoản đăng ký sau sẽ mặc định là **member**.
+- **Xem gia phả**: Không cần đăng nhập - mọi người có thể xem thông tin gia phả công khai.
+- **Chỉnh sửa**: Cần đăng ký tài khoản và được admin kích hoạt để có thể thêm/sửa thành viên.
+- **Tài khoản đầu tiên**: Người đăng ký đầu tiên sẽ tự động có quyền **admin**.
+- **Các tài khoản sau**: Đăng ký mới sẽ có quyền **member** và cần admin kích hoạt.
 
 ## Xử lý lỗi khi đăng ký
 
@@ -153,9 +155,11 @@ Sau khi cài đặt xong, nếu bạn gặp lỗi `Failed to fetch` khi đăng k
 
 Hệ thống có 3 cấp độ phân quyền để dễ dàng quản lý ai được phép cập nhật gia phả:
 
-1. **Admin (Quản trị viên):** Có toàn quyền đối với hệ thống.
+1. **Admin (Quản trị viên):** Có toàn quyền đối với hệ thống (quản lý người dùng, sao lưu/phục hồi dữ liệu).
 2. **Editor (Biên soạn):** Cho phép thêm, sửa, xóa thông tin hồ sơ và các mối quan hệ.
 3. **Member (Thành viên):** Chỉ có thể xem sơ đồ gia phả và các thống kê trực quan.
+
+**Lưu ý:** Người dùng không đăng nhập cũng có thể xem toàn bộ thông tin gia phả công khai (tương tự như Member).
 
 ## Đóng góp (Contributing)
 

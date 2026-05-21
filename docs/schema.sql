@@ -192,7 +192,8 @@ CREATE POLICY "Admins can view all profiles" ON public.profiles FOR SELECT USING
 
 -- PERSONS POLICIES
 DROP POLICY IF EXISTS "Enable read access for authenticated users" ON public.persons;
-CREATE POLICY "Enable read access for authenticated users" ON public.persons FOR SELECT TO authenticated USING (true);
+DROP POLICY IF EXISTS "Enable read access for all users" ON public.persons;
+CREATE POLICY "Enable read access for all users" ON public.persons FOR SELECT USING (true);
 
 DROP POLICY IF EXISTS "Admins can manage persons" ON public.persons;
 DROP POLICY IF EXISTS "Admins can insert persons" ON public.persons;
@@ -212,7 +213,8 @@ CREATE POLICY "Admins can manage private details" ON public.person_details_priva
 
 -- RELATIONSHIPS POLICIES
 DROP POLICY IF EXISTS "Enable read access for authenticated users" ON public.relationships;
-CREATE POLICY "Enable read access for authenticated users" ON public.relationships FOR SELECT TO authenticated USING (true);
+DROP POLICY IF EXISTS "Enable read access for all users" ON public.relationships;
+CREATE POLICY "Enable read access for all users" ON public.relationships FOR SELECT USING (true);
 
 DROP POLICY IF EXISTS "Admins can manage relationships" ON public.relationships;
 DROP POLICY IF EXISTS "Admins can insert relationships" ON public.relationships;
@@ -227,7 +229,8 @@ CREATE POLICY "Admins and Editors can delete relationships" ON public.relationsh
 ALTER TABLE public.custom_events ENABLE ROW LEVEL SECURITY;
 
 DROP POLICY IF EXISTS "Enable read access for authenticated users" ON public.custom_events;
-CREATE POLICY "Enable read access for authenticated users" ON public.custom_events FOR SELECT TO authenticated USING (true);
+DROP POLICY IF EXISTS "Enable read access for all users" ON public.custom_events;
+CREATE POLICY "Enable read access for all users" ON public.custom_events FOR SELECT USING (true);
 
 DROP POLICY IF EXISTS "Authenticated users can insert custom events" ON public.custom_events;
 CREATE POLICY "Authenticated users can insert custom events" ON public.custom_events FOR INSERT TO authenticated WITH CHECK (auth.uid() = created_by);
